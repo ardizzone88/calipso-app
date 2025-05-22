@@ -81,7 +81,6 @@ src/
 - pinia
 - typescript
 - @mdi/font (Material Design Icons para íconos)
-- sass / sass-loader (para Vuetify)
 
 
 
