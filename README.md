@@ -1,4 +1,4 @@
-# calipso-app
+
 
  CALIPSO APP - FORMULARIO DINÁMICO (Vue 3 + Vuetify 3 + Pinia)
 ==================================================
