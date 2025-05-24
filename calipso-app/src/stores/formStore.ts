@@ -44,6 +44,19 @@ export const useFormStore = defineStore('form', {
           { label: 'No', value: 0 },
         ],
       },
+         {
+        id: 4,
+        name: 'coment',
+        title: 'Comentarios',
+        order: 4,
+        type: {
+          name: 'textarea',
+          isVisible: true,
+          isRequired: true,
+          isOnlyRead: false,
+        },
+      },
+
     ],
     submittedRecords: [] as Record<string, string | number | null>[],
   }),

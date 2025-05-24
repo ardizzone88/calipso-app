@@ -3,9 +3,9 @@
     <v-row>
       <!-- Formulario dinámico -->
       <v-col cols="12" md="6">
-        <v-card>
+        <v-card class="h-100 d-flex flex-column">
           <v-card-title>Formulario dinámico</v-card-title>
-          <v-card-text>
+          <v-card-text class="flex-grow-1">
             <DynamicField
               v-for="field in fields"
               :key="field.name"
@@ -16,23 +16,19 @@
           </v-card-text>
         </v-card>
         <v-card-actions>
-          <v-btn  color="primary" variant="elevated"
-    @click="handleSubmit">ENVIAR</v-btn>
-        </v-card-actions>
-
-        <v-card-actions>
-          <v-btn  color="info"
-
-    @click="showDialog = true">VER REGISTROS ENVIADOS</v-btn>
+          <v-btn color="primary" variant="elevated" @click="handleSubmit">ENVIAR</v-btn>
+          <v-btn color="info" @click="showDialog = true">VER REGISTROS ENVIADOS</v-btn>
         </v-card-actions>
       </v-col>
+
       <!-- Vista en tiempo real -->
       <v-col cols="12" md="6">
-        <v-card>
+        <v-card class="h-100 d-flex flex-column">
           <v-card-title>Datos en tiempo real</v-card-title>
-          <v-card-text>
-            <v-text-field label="Nombre" :model-value="formData.nombre" readonly />
-            <v-text-field label="Apellido" :model-value="formData.lastname" readonly />
+          <v-card-text class="flex-grow-1">
+            <v-text-field label="Nombre" :model-value="formData.nombre" class="mb-4" readonly />
+            <v-text-field label="Apellido" :model-value="formData.lastname" class="mb-4" readonly />
+            <v-textarea label="Comentario" :model-value="formData.coment" class="mb-4" readonly />
             <v-text-field
               label="¿Primera vez en completar el formulario?"
               :model-value="formData.opcion"
@@ -45,14 +41,13 @@
 
     <!-- Diálogo para registros enviados -->
     <SubmittedRecordsDialog
-    :text="`X`"
+      :text="`X`"
       :show="showDialog"
       @update:show="showDialog = $event"
       :records="submittedRecords"
       :fields="fields"
       @delete-record="deleteRecord"
     />
-
   </v-container>
 </template>
 
@@ -70,7 +65,8 @@ type Field = {
 
 const fields: Field[] = [
   { name: 'nombre', label: 'Nombre', type: 'text' },
-  { name: 'lastname', label: 'Apellido', type: 'textarea' },
+  { name: 'lastname', label: 'Apellido', type: 'text' },
+  { name: 'coment', label: 'Comentario', type: 'textarea' },
   {
     name: 'opcion',
     label: '¿Primera vez en completar el formulario?',
@@ -83,6 +79,7 @@ const fields: Field[] = [
 const formData = reactive<Record<string, string | null>>({
   nombre: null,
   lastname: null,
+  coment: null,
   opcion: null,
 })
 
@@ -90,6 +87,7 @@ const formData = reactive<Record<string, string | null>>({
 const errors = reactive<Record<string, boolean>>({
   nombre: false,
   lastname: false,
+  coment: false,
   opcion: false,
 })
 
@@ -120,3 +118,9 @@ function deleteRecord(index: number) {
   submittedRecords.value.splice(index, 1)
 }
 </script>
+
+<style scoped>
+.v-card {
+  min-height: 100%;
+}
+</style>
