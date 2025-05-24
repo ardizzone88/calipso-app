@@ -26,7 +26,7 @@ Antes de instalar el proyecto, asegúrate de tener instalado:
 
    Usando Git:
    > git clone https://github.com/usuario/calipso-app.git
-   > cd calipso-app/ calipso-app
+   > cd calipso-app/calipso-app
 
    O simplemente descarga el ZIP y descomprímelo.
 
