@@ -1,6 +1,5 @@
-# calipso-app
 
-==================================================
+
  CALIPSO APP - FORMULARIO DINÁMICO (Vue 3 + Vuetify 3 + Pinia)
 ==================================================
 
@@ -27,7 +26,7 @@ Antes de instalar el proyecto, asegúrate de tener instalado:
 
    Usando Git:
    > git clone https://github.com/usuario/calipso-app.git
-   > cd calipso-app
+   > cd calipso-app/calipso-app
 
    O simplemente descarga el ZIP y descomprímelo.
 
@@ -81,7 +80,6 @@ src/
 - pinia
 - typescript
 - @mdi/font (Material Design Icons para íconos)
-- sass / sass-loader (para Vuetify)
 
 
 
